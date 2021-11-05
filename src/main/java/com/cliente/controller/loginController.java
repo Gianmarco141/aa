@@ -1,4 +1,4 @@
-package com.usuario.controller;
+package com.cliente.controller;
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.usuario.entity.usuario;
-import com.usuario.service.UsuarioService;
+import com.cliente.entity.cliente;
+import com.cliente.service.ClienteService;
 
 
 @RestController
@@ -21,12 +21,12 @@ import com.usuario.service.UsuarioService;
 public class loginController {
 	
 	@Autowired
-	private UsuarioService service;
+	private ClienteService service;
 	
 	@GetMapping("/porcorreo/{paramcorreo}")
 	@ResponseBody
-	public ResponseEntity<List<usuario>> listaCorreo(@PathVariable("paramcorreo") String correo) {
-		List<usuario> lista = service.listaPorCorreo(correo);
+	public ResponseEntity<List<cliente>> listaCorreo(@PathVariable("paramcorreo") String correo) {
+		List<cliente> lista = service.listaPorCorreo(correo);
 		return ResponseEntity.ok(lista);
 	}
 

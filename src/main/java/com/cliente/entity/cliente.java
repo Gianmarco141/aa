@@ -1,4 +1,4 @@
-package com.usuario.entity;
+package com.cliente.entity;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 @Table(name= "cliente")
 
-public class usuario {
+public class cliente {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,7 +36,7 @@ public class usuario {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaReg;
 	
-	public usuario () {
+	public cliente () {
 		this.fechaReg = LocalDate.now();
 			
 	}

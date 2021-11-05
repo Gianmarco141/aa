@@ -1,4 +1,4 @@
-package com.usuario.controller;
+package com.cliente.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -16,33 +16,33 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.usuario.entity.usuario;
-import com.usuario.service.UsuarioService;
-import com.usuario.util.cons;
+import com.cliente.entity.cliente;
+import com.cliente.service.ClienteService;
+import com.cliente.util.cons;
 
 @RestController
 @RequestMapping("/rest/cliente")
 @CrossOrigin(origins = "http://localhost:4200")
-public class UsuarioController {
+public class ClienteController {
 	
 	@Autowired
-	private UsuarioService service;
+	private ClienteService service;
 
 	
 	@GetMapping
 	@ResponseBody
-	public ResponseEntity<List<usuario>> listar(){
-		List<usuario> lista = service.listausuario();
+	public ResponseEntity<List<cliente>> listar(){
+		List<cliente> lista = service.listausuario();
 		return ResponseEntity.ok(lista);
 	}
 	
 	@PostMapping
 	@ResponseBody
-	public ResponseEntity<Map<String, Object>> inserta(@RequestBody usuario obj){
+	public ResponseEntity<Map<String, Object>> inserta(@RequestBody cliente obj){
 		
 		Map<String, Object> salida = new HashMap<>();
 		try{
-			 usuario objSalida = service.insertar(obj);
+			 cliente objSalida = service.insertar(obj);
 			 if (objSalida == null){
 				 salida.put("mensaje", cons.MENSAJE_REG_ERROR);
 			 }else {

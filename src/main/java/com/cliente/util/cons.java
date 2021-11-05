@@ -1,4 +1,4 @@
-package com.usuario.util;
+package com.cliente.util;
 
 public class cons {
 	
